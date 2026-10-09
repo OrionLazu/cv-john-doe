@@ -4,8 +4,8 @@ Application **React** qui affiche les informations publiques d'un profil GitHub,
 récupérées en direct via l'[API REST de GitHub](https://docs.github.com/en/rest).
 
 Réalisée dans le cadre du devoir **« Optimisez votre CV en ligne avec React.js »** (CEF).
-Le site vitrine qui l'accompagne est dans le dépôt
-[`cv-john-doe`](https://github.com/github-john-doe/cv-john-doe).
+Le site vitrine qui l'accompagne se trouve dans le dossier
+[`site/`](../site/) du même dépôt.
 
 ---
 
@@ -13,8 +13,8 @@ Le site vitrine qui l'accompagne est dans le dépôt
 
 | | |
 |---|---|
-| **Application en ligne** | <https://github-john-doe.github.io/cv-react-github/> |
-| **CodeSandbox** | <https://codesandbox.io/p/github/github-john-doe/cv-react-github/main> |
+| **Application en ligne** | <https://orionlazu.github.io/cv-john-doe/react-app/> |
+| **CodeSandbox** | <https://codesandbox.io/s/github/OrionLazu/cv-john-doe/tree/main/react-app> |
 | **Profil interrogé par défaut** | `github-john-doe` |
 | **Point d'entrée de l'API** | `https://api.github.com/users/github-john-doe` |
 
@@ -46,8 +46,8 @@ npm --version
 ## Installation
 
 ```bash
-git clone https://github.com/github-john-doe/cv-react-github.git
-cd cv-react-github
+git clone https://github.com/OrionLazu/cv-john-doe.git
+cd cv-john-doe/react-app
 npm install
 ```
 
@@ -79,11 +79,12 @@ npm run lint
 ## Structure du projet
 
 ```
-cv-react-github/
+react-app/
 ├── index.html                       # Page hôte : contient <div id="root">
 ├── vite.config.js                   # Configuration Vite (base GitHub Pages)
 ├── sandbox.config.json              # Configuration CodeSandbox
 ├── package.json
+├── package-lock.json                # Versions exactes des dépendances (npm ci)
 └── src/
     ├── main.jsx                     # Point d'entrée : monte <App /> dans #root
     ├── App.jsx                      # COMPOSANT PRINCIPAL FONCTIONNEL (état + composition)
@@ -156,21 +157,24 @@ la fin du chargement, ce qui évite les mises à jour d'état concurrentes.
 
 ### GitHub Pages (automatique)
 
-Le workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)
-construit l'application et la publie à chaque `push` sur `main`.
+Le workflow [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml),
+placé à la racine du dépôt, vérifie le code, construit l'application et la publie
+dans le sous-dossier `/react-app/` du site à chaque `push` sur `main`.
 
 Activation : **Settings → Pages → Build and deployment → Source : GitHub Actions**.
 
-Le champ `base` de `vite.config.js` vaut `/cv-react-github/` en production : il
-doit correspondre au nom du dépôt, sinon les fichiers CSS et JS ne seront pas trouvés.
+Le champ `base` de `vite.config.js` vaut `/cv-john-doe/react-app/` en production :
+il doit correspondre à l'adresse de publication, sinon les fichiers CSS et JS ne
+seront pas trouvés et la page restera blanche.
 
 ### CodeSandbox
 
 Le cahier des charges autorise explicitement l'hébergement sur CodeSandbox.
-Importez le dépôt depuis <https://codesandbox.io/p/github> ou ouvrez directement :
+Importez le dépôt depuis <https://codesandbox.io/p/github> ou ouvrez directement
+le sous-dossier `react-app` :
 
 ```
-https://codesandbox.io/p/github/github-john-doe/cv-react-github/main
+https://codesandbox.io/s/github/OrionLazu/cv-john-doe/tree/main/react-app
 ```
 
 Le fichier `sandbox.config.json` configure le conteneur Node et le port 3000.
@@ -203,4 +207,4 @@ Deux notions à ne pas confondre :
 
 ## Licence
 
-MIT — voir [`LICENSE`](LICENSE).
+MIT — voir [`LICENSE`](../LICENSE).
