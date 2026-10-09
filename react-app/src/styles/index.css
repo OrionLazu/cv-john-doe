@@ -1,0 +1,50 @@
+/* Application React - Profil GitHub
+   Charte graphique commune au site vitrine : Nunito Sans, #0d6efd, #444, #1e1e1e, #EEE */
+
+:root {
+  --app-bleu: #0d6efd;
+  --app-texte: #444;
+  --app-titre: #1e1e1e;
+  --app-fond: #eee;
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-weight: 400;
+  color: var(--app-texte);
+  background-color: var(--app-fond);
+}
+
+h1,
+h2 {
+  font-weight: 600;
+  color: var(--app-titre);
+}
+
+.app-entete {
+  background: linear-gradient(135deg, #0b1738 0%, #0d6efd 100%);
+}
+
+.app-entete h1,
+.app-entete .lead {
+  color: #fff;
+}
+
+.app-titre {
+  font-size: clamp(2rem, 6vw, 3.25rem);
+}
+
+.app-profil {
+  max-width: 720px;
+  border: 0;
+  border-radius: 0.75rem;
+}
+
+.app-avatar {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--app-bleu);
+}
