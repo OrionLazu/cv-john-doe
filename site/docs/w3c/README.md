@@ -3,17 +3,39 @@
 Le cahier des charges demande de fournir des **captures d'écran des résultats des
 validateurs W3C**. Ce dossier les regroupe.
 
-## Fichiers attendus
+## Résultats
 
-| Fichier | Contenu |
-|---|---|
-| `html-index.png` | Validation de `index.html` |
-| `html-services.png` | Validation de `services.html` |
-| `html-realisations.png` | Validation de `realisations.html` |
-| `html-blog.png` | Validation de `blog.html` |
-| `html-contact.png` | Validation de `contact.html` |
-| `html-mentions-legales.png` | Validation de `mentions-legales.html` |
-| `css-style.png` | Validation de `assets/css/style.css` |
+Toutes les validations ont été réalisées sur le site publié
+(<https://orionlazu.github.io/cv-john-doe/>).
+
+| Fichier | Contenu | Résultat |
+|---|---|---|
+| [`html-index.png`](html-index.png) | Validation de `index.html` | Aucune erreur ni avertissement |
+| [`html-services.png`](html-services.png) | Validation de `services.html` | Aucune erreur ni avertissement |
+| [`html-realisations.png`](html-realisations.png) | Validation de `realisations.html` | Aucune erreur ni avertissement |
+| [`html-blog.png`](html-blog.png) | Validation de `blog.html` | Aucune erreur ni avertissement |
+| [`html-contact.png`](html-contact.png) | Validation de `contact.html` | Aucune erreur ni avertissement |
+| [`html-mentions-legales.png`](html-mentions-legales.png) | Validation de `mentions-legales.html` | Aucune erreur ni avertissement |
+| [`html-react-app.png`](html-react-app.png) | Validation de la page de l'application React | Aucune erreur ni avertissement |
+| [`css-style.png`](css-style.png) | Validation de `assets/css/style.css` | Aucune erreur |
+| [`css-react-app.png`](css-react-app.png) | Validation de la feuille de style de l'application React | Aucune erreur |
+
+### Avertissements du validateur CSS
+
+Le validateur CSS affiche quelques avertissements, qui ne sont pas des erreurs :
+
+- **« vendor extension »** sur la pile de polices : le validateur prend le nom
+  de police système `-apple-system` pour une propriété propriétaire ;
+- **« CSS variables are not statically checked »** : le validateur ne sait pas
+  analyser les variables CSS (`var(--…)`), il le signale à titre d'information ;
+- **« no background-color » / « no color »** : simples conseils de lisibilité,
+  la couleur de fond `#EEE` étant héritée de l'élément `body`.
+
+### Aperçu
+
+![Validation HTML de la page d'accueil](html-index.png)
+
+![Validation CSS de la feuille de style du site](css-style.png)
 
 ## Procédure
 
