@@ -1,5 +1,10 @@
 name: Build et déploiement GitHub Pages
 
+# Publie le site vitrine à la racine de GitHub Pages et l'application React
+# dans le sous-dossier /react-app/ :
+#   https://orionlazu.github.io/cv-john-doe/
+#   https://orionlazu.github.io/cv-john-doe/react-app/
+
 on:
   push:
     branches: [main]
@@ -16,7 +21,7 @@ concurrency:
 
 jobs:
   build:
-    name: Construire l'application
+    name: Construire le site et l'application
     runs-on: ubuntu-latest
     steps:
       - name: Récupération des sources
@@ -27,12 +32,26 @@ jobs:
         with:
           node-version: 20
           cache: npm
+          cache-dependency-path: react-app/package-lock.json
 
       - name: Installation des dépendances
+        working-directory: react-app
         run: npm ci
 
+      - name: Vérification du code
+        working-directory: react-app
+        run: npm run lint
+
       - name: Build de production
+        working-directory: react-app
         run: npm run build
+
+      - name: Assemblage du site
+        run: |
+          mkdir _site
+          cp -r site/. _site/
+          rm -rf _site/docs _site/README.md
+          cp -r react-app/dist _site/react-app
 
       - name: Configuration de GitHub Pages
         uses: actions/configure-pages@v5
@@ -40,7 +59,7 @@ jobs:
       - name: Envoi de l'artefact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: _site
 
   deploy:
     name: Déployer
