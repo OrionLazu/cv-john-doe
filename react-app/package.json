@@ -6,10 +6,11 @@
   "type": "module",
   "license": "MIT",
   "author": "John Doe",
-  "homepage": "https://github-john-doe.github.io/cv-react-github/",
+  "homepage": "https://orionlazu.github.io/cv-john-doe/react-app/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/github-john-doe/cv-react-github.git"
+    "url": "https://github.com/OrionLazu/cv-john-doe.git",
+    "directory": "react-app"
   },
   "scripts": {
     "dev": "vite",

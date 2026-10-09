@@ -22,7 +22,7 @@ validateurs W3C**. Ce dossier les regroupe.
 Une fois le site publié, la méthode la plus rapide est la validation par URL :
 
 ```
-https://validator.w3.org/nu/?doc=https%3A%2F%2Fgithub-john-doe.github.io%2Fcv-john-doe%2Findex.html
+https://validator.w3.org/nu/?doc=https%3A%2F%2Forionlazu.github.io%2Fcv-john-doe%2Findex.html
 ```
 
 Répétez pour chaque page en remplaçant `index.html`.
@@ -36,7 +36,7 @@ Capturez l'écran affichant le message vert
 ### 2. Validateur CSS — <https://jigsaw.w3.org/css-validator/>
 
 ```
-https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fgithub-john-doe.github.io%2Fcv-john-doe%2Fassets%2Fcss%2Fstyle.css&profile=css3svg
+https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Forionlazu.github.io%2Fcv-john-doe%2Fassets%2Fcss%2Fstyle.css&profile=css3svg
 ```
 
 Ou onglet **« Par upload de fichier »** avec `assets/css/style.css`.

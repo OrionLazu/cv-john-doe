@@ -3,9 +3,9 @@
 Site vitrine d'un développeur web full stack, réalisé dans le cadre du devoir
 **« Optimisez votre CV en ligne avec React.js »** (CEF).
 
-Ce dépôt contient la **partie site statique** (HTML5, CSS3, Bootstrap 5, JavaScript vanilla).
-L'application React qui affiche le profil GitHub est dans un dépôt séparé :
-[`cv-react-github`](https://github.com/github-john-doe/cv-react-github).
+Ce dossier contient la **partie site statique** (HTML5, CSS3, Bootstrap 5, JavaScript vanilla).
+L'application React qui affiche le profil GitHub se trouve dans le dossier
+[`react-app/`](../react-app/) du même dépôt.
 
 ---
 
@@ -13,8 +13,8 @@ L'application React qui affiche le profil GitHub est dans un dépôt séparé :
 
 | | |
 |---|---|
-| **Site en ligne** | <https://github-john-doe.github.io/cv-john-doe/> |
-| **Application React** | <https://github-john-doe.github.io/cv-react-github/> |
+| **Site en ligne** | <https://orionlazu.github.io/cv-john-doe/> |
+| **Application React** | <https://orionlazu.github.io/cv-john-doe/react-app/> |
 | **Pages** | Accueil, Services, Réalisations, Blog, Contact, Mentions légales |
 
 ---
@@ -37,8 +37,8 @@ Font Awesome 6 et la police Nunito Sans sont chargés depuis leurs CDN respectif
 ## Installation
 
 ```bash
-git clone https://github.com/github-john-doe/cv-john-doe.git
-cd cv-john-doe
+git clone https://github.com/OrionLazu/cv-john-doe.git
+cd cv-john-doe/site
 ```
 
 ## Lancement
@@ -73,7 +73,7 @@ puis « Open with Live Server ».
 ## Structure du projet
 
 ```
-cv-john-doe/
+site/
 ├── index.html               # Accueil : bandeau plein écran + section « À propos »
 ├── services.html            # Offre de services (3 prestations)
 ├── realisations.html        # Portfolio (3 réalisations)
@@ -88,11 +88,8 @@ cv-john-doe/
 │   ├── css/style.css        # CSS personnalisé (charte graphique)
 │   ├── js/script.js         # JavaScript vanilla (nav active, retour en haut, formulaire)
 │   └── images/              # Illustrations, photo « À propos », visuels du portfolio
-├── docs/
-│   └── w3c/                 # Captures d'écran des validateurs W3C
-└── .github/
-    ├── workflows/deploy.yml # Déploiement automatique sur GitHub Pages
-    └── PULL_REQUEST_TEMPLATE.md
+└── docs/
+    └── w3c/                 # Captures d'écran des validateurs W3C
 ```
 
 ---
@@ -172,8 +169,9 @@ Les captures d'écran des validateurs se trouvent dans [`docs/w3c/`](docs/w3c/).
 ## Déploiement
 
 Le site est publié sur **GitHub Pages** par le workflow
-[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), déclenché à chaque
-`push` sur `main`.
+[`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml), placé à la racine
+du dépôt et déclenché à chaque `push` sur `main`. Le contenu de ce dossier est publié
+à la racine du site, l'application React dans le sous-dossier `/react-app/`.
 
 Pour activer la publication sur un nouveau dépôt :
 **Settings → Pages → Build and deployment → Source : GitHub Actions**.
@@ -182,13 +180,16 @@ Pour activer la publication sur un nouveau dépôt :
 
 ## Personnalisation
 
-Les URL de production pointent vers le compte d'exemple `github-john-doe`.
-Pour publier le site sur un autre compte, remplacez cette chaîne par le nom
-d'utilisateur GitHub voulu dans :
+Les URL de production pointent vers <https://orionlazu.github.io/cv-john-doe/>.
+Pour publier le site sur un autre compte, remplacez cette adresse dans :
 
 - `robots.txt` et `sitemap.xml`
-- les balises `<link rel="canonical">` et `<meta property="og:*">` des six pages
+- les balises `<link rel="canonical">` et `<meta property="og:*">` des six pages,
+  ainsi que les données structurées JSON-LD de `index.html`
 - ce fichier `README.md`
+
+Les liens `https://github.com/github-john-doe` du pied de page sont ceux du profil
+fictif de John Doe : ils ne changent pas.
 
 Un rechercher-remplacer sur l'ensemble du projet suffit
 (`Ctrl+Maj+H` dans Visual Studio Code).
@@ -207,5 +208,5 @@ Un rechercher-remplacer sur l'ensemble du projet suffit
 
 ## Licence
 
-Code source sous licence MIT — voir [`LICENSE`](LICENSE).
+Code source sous licence MIT — voir [`LICENSE`](../LICENSE).
 Les contenus textuels et les visuels sont fournis à titre d'exemple pédagogique.

@@ -1,8 +1,8 @@
-# robots.txt - https://github-john-doe.github.io/cv-john-doe/
+# robots.txt - https://orionlazu.github.io/cv-john-doe/
 User-agent: *
 Allow: /
 
 # La page des mentions légales ne doit pas être indexée
 Disallow: /mentions-legales.html
 
-Sitemap: https://github-john-doe.github.io/cv-john-doe/sitemap.xml
+Sitemap: https://orionlazu.github.io/cv-john-doe/sitemap.xml
