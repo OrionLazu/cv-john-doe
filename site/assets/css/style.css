@@ -1,0 +1,500 @@
+/* ==========================================================================
+   John Doe - Feuille de styles personnalisée
+   Charte graphique : Nunito Sans / #0d6efd / #444 / #1e1e1e / #EEE / #000
+   Complète Bootstrap 5 : ne redéfinit que ce qui est propre au projet.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Variables de la charte
+   -------------------------------------------------------------------------- */
+:root {
+  --jd-bleu: #0d6efd;
+  --jd-bleu-clair: #298eff;
+  --jd-bleu-icone: #cde1f8;
+  --jd-texte: #444;
+  --jd-titre: #1e1e1e;
+  --jd-fond: #eee;
+  --jd-noir: #000;
+  --jd-sombre: #212529;
+  --jd-transition: 0.3s ease-in-out;
+}
+
+/* --------------------------------------------------------------------------
+   2. Typographie et base
+   -------------------------------------------------------------------------- */
+body {
+  font-family: "Nunito Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-weight: 400;
+  color: var(--jd-texte);
+  background-color: var(--jd-fond);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  color: var(--jd-titre);
+}
+
+strong,
+b {
+  font-weight: 600;
+  color: var(--jd-noir);
+}
+
+a {
+  color: var(--jd-bleu);
+}
+
+/* Lien d'évitement : accessibilité clavier */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 2000;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--jd-bleu);
+  color: #fff;
+  border-radius: 0 0 0.25rem 0.25rem;
+  transition: top var(--jd-transition);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. En-tête et navigation
+   -------------------------------------------------------------------------- */
+.jd-header {
+  background-color: var(--jd-sombre);
+}
+
+.jd-header .navbar-brand {
+  font-weight: 600;
+  font-size: 1.6rem;
+  letter-spacing: 0.06em;
+  color: #fff;
+}
+
+.jd-header .navbar-brand:hover,
+.jd-header .navbar-brand:focus {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Texte des hyperliens en majuscules (charte graphique) */
+.jd-header .nav-link {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color var(--jd-transition);
+}
+
+/* Effet au survol : blanc avec une transparence de 0.8 */
+.jd-header .nav-link:hover,
+.jd-header .nav-link:focus {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Élément actif dans une autre nuance */
+.jd-header .nav-link.active {
+  color: #fff;
+}
+
+.jd-header .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.jd-header .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.5);
+}
+
+/* --------------------------------------------------------------------------
+   4. Page d'accueil : bandeau plein écran
+   -------------------------------------------------------------------------- */
+.jd-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 70px);
+  padding: 4rem 0;
+  /* Image adaptée à la largeur de l'écran : la version mobile est chargée
+     par défaut, les versions plus lourdes ne le sont qu'au-delà des seuils. */
+  background-image: url("../images/hero-accueil-768.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+/* Fond noir superposé avec une transparence de 0.3 */
+.jd-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.jd-hero > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.jd-hero h1 {
+  color: #fff;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+.jd-hero h2 {
+  color: #fff;
+  font-weight: 400;
+  font-size: clamp(1.1rem, 3vw, 2rem);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* --------------------------------------------------------------------------
+   5. Bandeau des pages intérieures
+   -------------------------------------------------------------------------- */
+.jd-banniere {
+  height: 180px;
+  background-image: url("../images/banniere-768.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Versions tablette et desktop des images d'arrière-plan */
+@media (min-width: 768px) {
+  .jd-hero {
+    background-image: url("../images/hero-accueil-1024.jpg");
+  }
+
+  .jd-banniere {
+    background-image: url("../images/banniere-1024.jpg");
+  }
+}
+
+@media (min-width: 1200px) {
+  .jd-hero {
+    background-image: url("../images/hero-accueil.jpg");
+  }
+
+  .jd-banniere {
+    background-image: url("../images/banniere.jpg");
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. Titres de section
+   -------------------------------------------------------------------------- */
+.jd-section {
+  padding: 4rem 0;
+}
+
+.jd-section-titre {
+  text-transform: uppercase;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+}
+
+.jd-separateur {
+  width: 280px;
+  max-width: 60%;
+  height: 4px;
+  margin: 1.5rem auto 0;
+  background-color: var(--jd-bleu);
+  border: 0;
+  opacity: 1;
+}
+
+.jd-titre-souligne {
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--jd-bleu);
+}
+
+/* --------------------------------------------------------------------------
+   7. Section « À propos »
+   -------------------------------------------------------------------------- */
+.jd-carte-apropos {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
+}
+
+.jd-apropos-photo {
+  display: block;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.12);
+}
+
+.jd-competence + .jd-competence {
+  margin-top: 1rem;
+}
+
+.jd-competence .progress {
+  height: 14px;
+  background-color: #e2e6ea;
+}
+
+/* --------------------------------------------------------------------------
+   8. Page services
+   -------------------------------------------------------------------------- */
+.jd-service {
+  background-color: #fff;
+  border: 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.07);
+  transition: transform var(--jd-transition), box-shadow var(--jd-transition);
+}
+
+.jd-service:hover,
+.jd-service:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 0.75rem 1.75rem rgba(0, 0, 0, 0.12);
+}
+
+.jd-service-icone {
+  font-size: 2.75rem;
+  color: var(--jd-bleu);
+  transition: color var(--jd-transition);
+}
+
+/* La couleur de l'icône devient #cde1f8 au survol de l'article */
+.jd-service:hover .jd-service-icone,
+.jd-service:focus-within .jd-service-icone {
+  color: var(--jd-bleu-icone);
+}
+
+.jd-service-titre {
+  text-transform: uppercase;
+  font-size: 1.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. Cartes réalisations et blog
+   -------------------------------------------------------------------------- */
+.jd-carte {
+  border: 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.07);
+  transition: transform var(--jd-transition), box-shadow var(--jd-transition);
+}
+
+.jd-carte:hover,
+.jd-carte:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 0.75rem 1.75rem rgba(0, 0, 0, 0.14);
+}
+
+.jd-carte-image {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  width: 100%;
+  transition: transform var(--jd-transition);
+}
+
+.jd-carte:hover .jd-carte-image {
+  transform: scale(1.05);
+}
+
+.jd-carte-media {
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   10. Page contact
+   -------------------------------------------------------------------------- */
+.jd-contact {
+  position: relative;
+  padding: 4rem 0;
+  background-image: url("../images/contact-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+}
+
+/* Fond bleu transparent recouvrant l'image : rgba(0, 105, 255, 0.5) */
+.jd-contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 105, 255, 0.5);
+}
+
+.jd-contact > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.jd-contact-panneau {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.18);
+}
+
+.jd-carte-plan {
+  width: 100%;
+  height: 320px;
+  border: 0;
+  border-radius: 0.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   11. Pied de page
+   -------------------------------------------------------------------------- */
+.jd-footer {
+  background-color: #e9ecef;
+  padding-top: 3rem;
+}
+
+.jd-footer h2 {
+  font-size: 1.2rem;
+}
+
+.jd-footer-liste {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.jd-footer-liste li + li {
+  margin-top: 0.4rem;
+}
+
+.jd-footer-liste a {
+  color: var(--jd-texte);
+  text-decoration: none;
+  transition: color var(--jd-transition), padding-left var(--jd-transition);
+}
+
+.jd-footer-liste a::before {
+  content: "\f054"; /* fa-chevron-right */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 0.5rem;
+  color: var(--jd-bleu);
+}
+
+.jd-footer-liste a:hover,
+.jd-footer-liste a:focus {
+  color: var(--jd-bleu);
+  padding-left: 0.25rem;
+}
+
+.jd-reseaux a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5rem;
+  font-size: 1.4rem;
+  color: var(--jd-titre);
+  border-radius: 0.25rem;
+  transition: color var(--jd-transition), background-color var(--jd-transition);
+}
+
+.jd-reseaux a:hover,
+.jd-reseaux a:focus {
+  color: #fff;
+  background-color: var(--jd-bleu);
+}
+
+.jd-copyright {
+  background-color: var(--jd-sombre);
+  color: #fff;
+  padding: 1rem 0;
+  margin-top: 2.5rem;
+}
+
+.jd-copyright p {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   12. Bouton « retour en haut » (affiché en JavaScript au défilement)
+   -------------------------------------------------------------------------- */
+.jd-haut-de-page {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 1030;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  color: #fff;
+  background-color: var(--jd-sombre);
+  border: 0;
+  border-radius: 0.25rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity var(--jd-transition), transform var(--jd-transition),
+    background-color var(--jd-transition), visibility var(--jd-transition);
+}
+
+.jd-haut-de-page.est-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* La couleur de fond devient #298eff au survol */
+.jd-haut-de-page:hover,
+.jd-haut-de-page:focus {
+  background-color: var(--jd-bleu-clair);
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   13. Adaptations tablette et mobile
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  .jd-header .navbar-collapse {
+    padding-top: 0.75rem;
+  }
+
+  .jd-header .nav-link {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
+
+  .jd-banniere {
+    height: 130px;
+  }
+
+  .jd-section {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .jd-hero {
+    min-height: 78vh;
+  }
+
+  .jd-banniere {
+    height: 100px;
+  }
+
+  .jd-footer {
+    text-align: left;
+  }
+}
+
+/* Respect de la préférence système « animations réduites » */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
