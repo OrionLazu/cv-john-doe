@@ -1,4 +1,7 @@
+import EnTete from "./components/EnTete.jsx";
 import ProfilGitHub from "./components/ProfilGitHub.jsx";
+import Chargement from "./components/Chargement.jsx";
+import MessageErreur from "./components/MessageErreur.jsx";
 import { useProfilGitHub } from "./hooks/useProfilGitHub.js";
 
 /** Profil interrogé par défaut au premier chargement de l'application. */
@@ -7,32 +10,36 @@ const PSEUDONYME_PAR_DEFAUT = "github-john-doe";
 /**
  * Composant principal de l'application.
  *
- * Il gère l'état, délègue l'appel réseau au hook personnalisé useProfilGitHub
- * et confie l'affichage des données au composant séparé <ProfilGitHub />.
+ * Composant fonctionnel : il gère l'état du pseudonyme recherché avec le hook
+ * useState, délègue l'appel réseau au hook personnalisé useProfilGitHub et
+ * confie l'affichage des données au composant séparé <ProfilGitHub />.
  */
 export default function App() {
-  const { profil, chargement, erreur } = useProfilGitHub(PSEUDONYME_PAR_DEFAUT);
+  const { profil, chargement, erreur, recharger } = useProfilGitHub(PSEUDONYME_PAR_DEFAUT);
 
   return (
     <div className="app">
-      <header className="app-entete text-center text-white py-5">
-        <div className="container">
-          <h1 className="app-titre">Github user</h1>
-          <p className="lead mb-0">
-            Les informations publiques d&apos;un profil GitHub, récupérées en direct via l&apos;API.
-          </p>
-        </div>
-      </header>
+      <EnTete />
 
       <main className="container py-5">
-        {chargement ? <p className="text-center">Chargement du profil…</p> : null}
+        {chargement ? <Chargement /> : null}
 
         {!chargement && erreur ? (
-          <p className="text-center text-danger">{erreur}</p>
+          <MessageErreur message={erreur} onReessayer={recharger} />
         ) : null}
 
         {!chargement && !erreur ? <ProfilGitHub profil={profil} /> : null}
       </main>
+
+      <footer className="app-pied text-center py-4">
+        <p className="mb-0">
+          Données fournies par l&apos;
+          <a href="https://docs.github.com/en/rest" target="_blank" rel="noopener noreferrer">
+            API REST de GitHub
+          </a>
+          {" "}&mdash; Réalisé par John Doe
+        </p>
+      </footer>
     </div>
   );
 }
