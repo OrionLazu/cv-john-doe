@@ -1,0 +1,31 @@
+# Systèmes d'exploitation
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs
+.vscode/
+.idea/
+*.sublime-*
+*.suo
+*.sw?
+
+# Dépendances et sorties de build
+node_modules/
+dist/
+dist-ssr/
+.cache/
+*.local
+
+# Journaux
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Variables d'environnement
+.env
+.env.local
+.env.*.local
